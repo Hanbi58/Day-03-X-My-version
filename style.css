@@ -11,6 +11,7 @@ body {
 }
 h1 {
   margin: 0;
+  margin-bottom: 1em;
 }
 .container {
   background-color: lightgray;
@@ -20,6 +21,8 @@ h1 {
   /* display: flex; */
   /* justify-content: center; */
   text-align: center;
+  transition: 1s ease;
+  transform-origin: top left;
 }
 .container .imag {
   width: 70%;
@@ -60,10 +63,54 @@ h1 {
 }
 
 #open {
+  transform: rotate(20deg);
+  transform-origin: top left;
   opacity: 0;
 }
 
 .nav-container {
   margin: auto;
   position: relative;
+}
+
+.rotate {
+  transform: rotate(-20deg);
+}
+
+.container.rotate #close {
+  opacity: 0;
+}
+
+.container.rotate #open {
+  opacity: 1;
+}
+
+.nav-container {
+  margin: auto;
+  position: fixed;
+  bottom: 1em;
+  left: 1em;
+  margin-bottom: 2em;
+  transform: translateX(-10em);
+  transition: 1s ease;
+}
+
+.nav-container ul {
+  font-size: 1.5rem;
+  list-style: none;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+ul li:nth-of-type(2) {
+  margin-left: 0.6em;
+}
+ul li:nth-of-type(3) {
+  margin-left: 1.2em;
+}
+
+.container.rotate + .nav-container {
+  transform: translateX(0);
 }
